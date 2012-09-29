@@ -6,10 +6,10 @@ namespace Wojoz.BLL
     using Wojoz.IDAL;
 
     /// <summary>
-    /// 业务积累
+    /// 业务基类
     /// </summary>
     public class BusinessBase<T>
-    { 
+    {
         protected readonly IRepository<T> Manager = DataAccess<IRepository<T>>.Create(typeof(T).Name.Replace("Info", "DAL"));
 
         #region  成员方法
