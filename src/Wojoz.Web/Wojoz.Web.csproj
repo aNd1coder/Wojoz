@@ -125,6 +125,9 @@
     <Content Include="js\lib\require.min.js" />
     <Content Include="js\r.js" />
     <Content Include="js\lib\require.js" />
+    <Content Include="skin\default\css\app.css">
+      <DependentUpon>app.scss</DependentUpon>
+    </Content>
     <Content Include="upload\promo\2012\06\25\banner.jpg" />
     <Content Include="Widgets\FilterPanel.ascx" />
     <Content Include="Widgets\Service.ascx" />
@@ -320,11 +323,6 @@
     <Content Include="Global.asax" />
     <Content Include="skin\default\js\Mstar.js" />
     <Content Include="skin\default\js\plugins\html5.js" />
-    <Content Include="skin\default\css\app.css">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>app.scss</DependentUpon>
-    </Content>
     <Content Include="skin\default\css\html5.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -914,8 +912,10 @@
     <Content Include="skin\default\js\HttpCombiner.ashx" />
     <Content Include="skin\default\css\HttpCombiner.ashx" />
     <None Include="skin\default\css\app.scss">
-      <Generator>ScssGenerator</Generator>
-      <LastGenOutput>app.css</LastGenOutput>
+      <Compile>True</Compile>
+      <Minify>True</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>True</DebugInfo>
     </None>
     <None Include="___ADMIN___\assets\js\themes\default\images\Thumbs.db" />
     <None Include="___ADMIN___\assets\js\themes\gray\images\Thumbs.db" />

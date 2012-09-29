@@ -8,7 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Wojoz.Plugins", "3.Wojoz.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Wojoz.Document", "1.Wojoz.Document", "{A5F96FEE-AB16-469F-8550-A536A4623A43}"
 	ProjectSection(SolutionItems) = preProject
-		Readme!.txt = Readme!.txt
+		Readme!.md = Readme!.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Wojoz.CodeBuilder", "4.Wojoz.CodeBuilder", "{082A2778-280C-4A42-96AB-156D2C5B0360}"
@@ -50,6 +50,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wojoz.BLL", "Wojoz.BLL\Wojoz.BLL.csproj", "{BE6CC1DF-EBB3-445C-9B70-87E578B31750}"
 EndProject
 Global
+	GlobalSection(JSLint) = preSolution
+		SolutionConfigurationLocation = D:\workspace\projects\Wojoz\src\JSLintOptions.xml
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms

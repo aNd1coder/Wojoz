@@ -21,7 +21,7 @@
 </tbody>
 </table>
 </FooterTemplate>
-</Wojoz:Repeater>
+</Wjz:Repeater>
 </div>
 <Wjz:Footer ID="UIFooter" runat="server" />
 </asp:Content>
