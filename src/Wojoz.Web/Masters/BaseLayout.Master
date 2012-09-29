@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BaseLayout.Master.cs" Inherits="Wojoz.Web.Masters.BaseLayout" %>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" /> 
+<title>蜗居族</title>
+<meta name="keywords" content="蜗居族" />
+<meta name="description" content="蜗居族" />
+<%=UrlHelper.StyleRegister("base.css")%>
+<%=UrlHelper.StyleRegister("layout.css")%>
+<asp:ContentPlaceHolder ID="StylesPlaceHolder" runat="server" />
+<link rel="shortcut icon" href="<%=ConfigManager.GetAppSetting("siteDomain") %>favicon.ico" />
+<script type="text/javascript">if (top.location != self.location) { top.location.replace(self.location); } window.onerror = function () { return true; }</script>
+<script type="text/javascript">var Env = { Url: '<%=ConfigManager.GetString("siteDomain") %>', ResourceUrl: '/WebResources/Default/images/', PageName: "<%=PageName%>" };</script>
+<%=UrlHelper.ScriptRegister("conf.js")%>
+<%=UrlHelper.ScriptRegister("app.js")%>
+<!--[if IE 6]><%=UrlHelper.ScriptPluginsRegister("belated-png.min.js")%><![endif]-->
+<asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server" />
+</head>
+<body>
+    <div id="wraper">
+        <Wjz:UIHeader ID="Header" runat="server" />
+        <div id="container">
+            <asp:ContentPlaceHolder ID="ContainerPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <Wjz:UIFooter ID="Footer" runat="server" />
+    </div>
+    <asp:ContentPlaceHolder ID="LazyContainer" runat="server">
+        <asp:ContentPlaceHolder ID="PageScriptsPlaceHolder" runat="server" /> 
+        <asp:ContentPlaceHolder ID="PageScriptsContainer" runat="server" />
+    </asp:ContentPlaceHolder>
+</body>
+</html>

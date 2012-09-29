@@ -1,0 +1,20 @@
+﻿<%--
+Name: BLL.cst
+Author: aNd1coder
+Description: Business lay template
+--%>
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Src="" Inherits="OutputFileCodeTemplate" Debug="False" Description="Business lay template."  ResponseEncoding="UTF-8"%>
+<%@ Property Name="SourceTable" Type="SchemaExplorer.TableSchema"  Category="Context"  Optional="True" Description="the table name"   %>
+namespace Wojoz.BLL
+{
+    using Wojoz.Model;
+
+    /// <summary>
+    /// <%=this.SourceTable.Name%>Manager 业务逻辑类
+    /// </summary>
+    public class <%=this.SourceTable.Name%>Manager : BusinessBase<<%=this.SourceTable.Name%>Info>
+    {
+
+    }
+}
+

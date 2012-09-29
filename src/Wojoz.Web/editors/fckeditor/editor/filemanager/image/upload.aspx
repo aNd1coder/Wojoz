@@ -1,0 +1,1 @@
+<%@ Page Language="c#" Trace="false" Inherits="FredCK.FCKeditorV2.ImageUpload.Uploader" AutoEventWireup="false" %>

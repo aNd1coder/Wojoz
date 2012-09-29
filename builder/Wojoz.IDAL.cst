@@ -1,0 +1,23 @@
+﻿<%--
+Name: IDAL.cst
+Author: aNd1coder
+Description: Database access interface lay template
+--%>
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Src="" Inherits="OutputFileCodeTemplate" Debug="False" Description="Template description here."  ResponseEncoding="UTF-8"%>
+<%@ Property Name="SourceTable" Type="SchemaExplorer.TableSchema"  Category="Context"  Optional="True" Description="the table name"   %>
+namespace Wojoz.IDAL
+{
+    using Wojoz.Model;
+    
+    /// <summary>
+    ///I<%=this.SourceTable.Name%> 接口
+    /// </summary>
+    public interface I<%=this.SourceTable.Name%>DAL : IRepositoryBase<<%=this.SourceTable.Name%>Info>
+    {
+        
+    }
+}
+
+
+
+

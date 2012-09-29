@@ -1,0 +1,45 @@
+﻿#orderStatus,.paysuccess .orderStatus{ margin-bottom: 10px; height: 1%; overflow: hidden; }
+#orderStatus li,.paysuccess .orderStatus li{ line-height: 25px; }
+#orderStatus h3,.paysuccess .orderStatus h3{background:url(../images/wode_tit.gif) no-repeat;text-indent:67px; line-height:32px; color:#710700; font-size:14px; font-weight:bold;}
+#orderStatus .clearfix,.paysuccess .orderStatus .clearfix{ border:#dcc464 1px solid;border-top:none;padding: 20px 10px;}
+#orderStatus .clearfix{background:#FFFCF5; }
+.paysuccess .orderStatus li{ border-bottom:1px dotted #B4B4B4;}
+.checkoutBox span, .checkoutBox label { display: inline-block; height: 25px; line-height: 25px; }
+.txtTop td b{ color:#8D0709;}
+.shipment { width: 200px;}
+.shipment li{ margin-left:10px;}
+.shipment li label,.payment li label{ color:#A80508;}
+.payment { width: 400px; }
+.payment b{ font-weight:bold; font-size:14px; color:#f60; margin-left:15px;}
+.orderStatus label,.OrderInfoPanel label { margin-right:10px; color:#7A0800;}
+.payment .btnPayNow { margin-left:10px;display:inline-block;background:url(../images/btnPayNow.jpg) no-repeat; width:117px; height:34px; padding-top:3px;color:#FDE792; font-weight:bold; font-size:15px; text-indent:3em; cursor:pointer; text-decoration:none;}
+.payment li{ height:1%; overflow:hidden;}
+.payment li b{ float:left;}
+.payment li a{ float:right;}
+.payment li.payAction{ padding-top:15px;margin-top:15px; border-top:1px solid #561E1F;}
+.orderContent { line-height: 2em; width:738px;}
+.orderContent li a,.orderContent td a:hover{ text-decoration:underline;color:#9A3332;}
+#Favorable li span{ margin-right:25px;}
+#Favorable li b{ color:#561E1F; font-weight:bold;}
+.checkoutBox { margin-bottom: 20px}
+.btnControl { padding: 20px 0; }
+.btnControl a { margin: 0px 125px;_margin: 0 50px; } 
+.checkoutBox label { width: auto; display: inline; }
+.checkoutBox h4{ background:url(../images/wode_tit2.gif) no-repeat; line-height:24px; text-indent:23px; color:#710700; font-size:14px; font-weight:bold; margin-bottom:10px;}
+.shippingAddressContentInfo{ height:85px;}
+.shippingAddressContentInfo li { width: 300px; float: left; }
+.shippingAddressContentInfo li b{ color:#561E1F;} 
+.accountTable { width: 100%;}
+.accountTable td,.accountTable th{ border-bottom:1px dotted #D9C45F; height: 30px; line-height: 30px; padding-left:15px; text-align:center;}
+.ItemPanel{background:url(../images/ming_center.gif) repeat-y; padding:10px; margin:-10px 0 -15px 0;}
+.accountTable thead{ background:#F6EDCA;color:#7D0800;}
+.priceArea { text-align: right; font-weight:bold; margin-top:10px;}
+.priceArea b{ color:#7A0800; margin-right:10px;} 
+#PayTotalAmount { color: Red; font-family: Arial; font-size: 18px; }
+#logistics b{ margin-right:20px;}
+.itemName img { margin:10px 0; vertical-align:middle; margin-right:5px;}
+#orderDataTable .itemName,.accountTable .itemName,.dataGridViewPanel .itemName{ text-align:left; padding-left:10px;}
+.btnPrint{ background:url(../images/daying_an.gif) no-repeat; display:block; width:112px; height:32px;}
+.orderStatus em{ margin-left:45px;} 
+#infocol label,#infocol1 label{ display:inline-block; width:200px;}
+#infocol li,#infocol1 li{ height:30px; line-height:30px;}

@@ -1,0 +1,10 @@
+﻿.tooltip { font-size:12px;}
+#header { height: 28px; line-height: 28px; padding: 5px 10px; margin: 10px 0 5px 0; font-family: SimSun; }
+#header .breadcrumbs { color: #555; }
+#header .btn { float: right; }
+#header .icon-home { vertical-align:sub; margin-right:2px;}
+.external { background: url(img/external.png) no-repeat left center; padding-left: 12px; }
+.table th, .table td { vertical-align: middle; }
+.action { margin: 10px 0; }
+.action .btn,.form-actions .btn { margin-right:5px;}
+.form-horizontal { margin-top:50px;}

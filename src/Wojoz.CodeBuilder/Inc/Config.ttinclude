@@ -1,0 +1,8 @@
+﻿<#+
+    public class config
+    {
+        public static readonly string ConnectionString="Data Source=(local);Integrated Security=true;Initial Catalog=Northwind;";
+        public static readonly string DbDatabase="Northwind";
+        public static readonly string TableName="Customers";
+    }
+#>

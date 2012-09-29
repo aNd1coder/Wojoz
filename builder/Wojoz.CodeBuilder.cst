@@ -1,0 +1,164 @@
+﻿<%--
+Name: ProjectCodeGenerate.cst
+Author: aNd1coder
+Description: Generate the whole project codes
+--%>
+<%@ CodeTemplate Language="C#" TargetLanguage="C#"  Inherits=""  Description=" Generate the whole project codes"  ResponseEncoding="UTF-8"%>
+<%@ Property Name="SourceDatabase" Type="SchemaExplorer.DatabaseSchema" Category="" Description="Database containing the tables." %>
+
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Import Namespace="SchemaExplorer" %>
+<%@ Assembly Name="CodeSmith.BaseTemplates" %>
+<%@ Import Namespace="CodeSmith.BaseTemplates" %>
+<%@ Assembly Name="CodeSmith.CustomProperties" %>
+<%@ Import Namespace="CodeSmith.CustomProperties" %>
+<%@ Assembly Name="System.Design" %>
+<%@ Import Namespace="System.Design" %>
+
+<%@ Register Name="BLLTemplate" Template="Wojoz.BLL.cst" MergeProperties="True" ExcludeProperties="" %> 
+<%@ Register Name="IDALTemplate" Template="Wojoz.IDAL.cst" MergeProperties="True" ExcludeProperties="" %>
+<%@ Register Name="ModelTemplate" Template="Wojoz.Model.cst" MergeProperties="True" ExcludeProperties="" %>
+<%@ Register Name="SQLServerDALTemplate" Template="Wojoz.SQLServerDAL.cst" MergeProperties="True" ExcludeProperties="" %>
+<%@ Register Name="StoreProcedureTemplate" Template="Wojoz.StoreProcedure.cst" MergeProperties="True" ExcludeProperties="" %> 
+<%@ Register Name="JavaScriptConverterTemplate" Template="Wojoz.JavaScriptConverter.cst" MergeProperties="True" ExcludeProperties="" %> 
+
+<script runat="template">
+public static string GetCSharpDataTypeByDBColumn(ColumnSchema column)
+{
+    switch (column.DataType)
+    {
+        case DbType.AnsiString: return "string";
+        case DbType.AnsiStringFixedLength: return "string";
+        case DbType.Binary: return "byte[]";
+        case DbType.Boolean: return "bool";
+        case DbType.Byte: return "byte";
+        case DbType.Currency: return "decimal";
+        case DbType.Date: return "DateTime";
+        case DbType.DateTime: return "DateTime";
+        case DbType.Decimal: return "decimal";
+        case DbType.Double: return "double";
+        case DbType.Guid: return "Guid";
+        case DbType.Int16: return "short";
+        case DbType.Int32: return "int";
+        case DbType.Int64: return "long";
+        case DbType.Object: return "object";
+        case DbType.SByte: return "sbyte";
+        case DbType.Single: return "float";
+        case DbType.String: return "string";
+        case DbType.StringFixedLength: return "string";
+        case DbType.Time: return "TimeSpan";
+        case DbType.UInt16: return "ushort";
+        case DbType.UInt32: return "uint";
+        case DbType.UInt64: return "ulong";
+        case DbType.VarNumeric: return "decimal";
+        default:
+            return "__UNKNOWN__" + column.NativeType;
+    }
+}
+
+public static string GetSqlDbType(ColumnSchema column)
+{
+    switch (column.NativeType)
+    {
+        case "bigint": return "BigInt";
+        case "binary": return "Binary";
+        case "bit": return "Bit";
+        case "char": return "Char";
+        case "datetime": return "DateTime";
+        case "decimal": return "Decimal";
+        case "float": return "Float";
+        case "image": return "Image";
+        case "int": return "Int";
+        case "money": return "Money";
+        case "nchar": return "NChar";
+        case "ntext": return "NText";
+        case "numeric": return "Decimal";
+        case "nvarchar": return "NVarChar";
+        case "real": return "Real";
+        case "smalldatetime": return "SmallDateTime";
+        case "smallint": return "SmallInt";
+        case "smallmoney": return "SmallMoney";
+        case "sql_variant": return "Variant";
+        case "sysname": return "NChar";
+        case "text": return "Text";
+        case "timestamp": return "Timestamp";
+        case "tinyint": return "TinyInt";
+        case "uniqueidentifier": return "UniqueIdentifier";
+        case "varbinary": return "VarBinary";
+        case "varchar": return "VarChar";
+        default: return "__UNKNOWN__" + column.NativeType;
+    }
+}
+</script>
+<%
+
+ //实例化模版
+BLLTemplate BLL = new BLLTemplate();  
+IDALTemplate IDAL = new IDALTemplate(); 
+ModelTemplate Model = new ModelTemplate(); 
+SQLServerDALTemplate SQLServerDAL = new SQLServerDALTemplate(); 
+StoreProcedureTemplate  StoreProcedure = new StoreProcedureTemplate(); 
+JavaScriptConverterTemplate JavaScriptConverter = new JavaScriptConverterTemplate(); 
+
+string BLLDirc = this.OutputDirectory+@"\Wojoz.BLL\"; 
+string IDALDirc = this.OutputDirectory+@"\Wojoz.IDAL\";
+string ModelDirc = this.OutputDirectory+@"\Wojoz.Model\";
+string SQLServerDALDirc = this.OutputDirectory+@"\Wojoz.Data.SqlServer\";
+string StoreProcedureDirc = this.OutputDirectory+@"\Wojoz.StoreProcedure\"; 
+string JavaScriptConverterDirc = this.OutputDirectory+@"\Wojoz.Model\JavaScriptConverter\"; 
+
+//检查目录是否存在,不存在则创建
+DirctoryValidator(BLLDirc); 
+DirctoryValidator(IDALDirc);
+DirctoryValidator(ModelDirc);
+DirctoryValidator(SQLServerDALDirc);
+DirctoryValidator(StoreProcedureDirc); 
+DirctoryValidator(JavaScriptConverterDirc); 
+
+for(int i=0; i<this.SourceDatabase.Tables.Count;i++)
+{   
+    //指定输出目录
+    BLL.OutputFile = BLLDirc + this.SourceDatabase.Tables[i].Name + "Manager.cs"; 
+    IDAL.OutputFile = IDALDirc + "I" + this.SourceDatabase.Tables[i].Name + ".cs";
+	Model.OutputFile = ModelDirc + this.SourceDatabase.Tables[i].Name + "Info.cs";
+	SQLServerDAL.OutputFile = SQLServerDALDirc + this.SourceDatabase.Tables[i].Name + "DAL.cs";
+	StoreProcedure.OutputFile = StoreProcedureDirc + this.SourceDatabase.Tables[i].Name + ".sql"; 
+	JavaScriptConverter.OutputFile = JavaScriptConverterDirc + this.SourceDatabase.Tables[i].Name + "JavascriptConverter.cs"; 
+    
+	BLL.SourceTable =  
+    IDAL.SourceTable = 
+    Model.SourceTable = 
+    SQLServerDAL.SourceTable = 
+    StoreProcedure.SourceTable =  
+    JavaScriptConverter.SourceTable =  
+    this.SourceDatabase.Tables[i];
+    
+    //输出 
+    BLL.Render(Response); 
+    IDAL.Render(Response);
+    Model.Render(Response);
+    SQLServerDAL.Render(Response);
+    StoreProcedure.Render(Response); 
+    JavaScriptConverter.Render(Response); 
+}
+%>
+
+<script runat="template">
+//指定项目输入目录
+private string _outputDirectory = @"D:\aNd1coder\ProjectGenerator";
+[Editor(typeof(System.Windows.Forms.Design.FolderNameEditor), typeof(System.Drawing.Design.UITypeEditor)),
+Category("Custom"), Description("Output directory.")]
+public string OutputDirectory
+{
+       get {return _outputDirectory;}
+       set {_outputDirectory= value;}
+}
+
+//目录检查器
+private void DirctoryValidator(string dircPath)
+{
+    if(!System.IO.Directory.Exists(dircPath)){
+        System.IO.Directory.CreateDirectory(dircPath);
+    }
+}
+</script>

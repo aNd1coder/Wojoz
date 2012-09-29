@@ -1,0 +1,33 @@
+﻿<!--
+可在 <windir>\Microsoft.NET\Framework\<ver>\CONFIG\Browsers 中找到现有的浏览器定义
+-->
+<browsers>
+  <browser refID="Default">
+    <controlAdapters>
+      <adapter controlType="System.Web.UI.HtmlControls.HtmlTitle" adapterType="Wojoz.UI.Adapters.ControlAdapter.HtmlTitleAdapter" />
+      <!--<adapter controlType="System.Web.UI.HtmlControls.HtmlHead" adapterType="Wojoz.UI.Adapters.ControlAdapter.HtmlHeadAdapter"/>
+      <adapter controlType="System.Web.UI.HtmlControls.HtmlLink" adapterType="Wojoz.UI.Adapters.ControlAdapter.HtmlLinkAdapter"/>
+      <adapter controlType="System.Web.UI.HtmlControls.HtmlMeta" adapterType="Wojoz.UI.Adapters.ControlAdapter.HtmlMetaAdapter"/>
+      <adapter controlType="System.Web.UI.WebControls.Image" adapterType="Wojoz.UI.Adapters.ControlAdapter.ImageAdapter"/>-->
+    </controlAdapters>
+  </browser>
+  <!--Onecone.Web.ControlAdapters.HtmlTitleAdapter
+  <browser id="NewBrowser" parentID="Mozilla">
+    <identification>
+      <userAgent match="Unique User Agent Regular Expression" />
+    </identification> 
+    <capture>
+      <userAgent match="NewBrowser (?'version'\d+\.\d+)" />
+    </capture> 
+    <capabilities>
+      <capability name="browser" value="My New Browser" />
+      <capability name="version" value="${version}" />
+    </capabilities>
+  </browser> 
+  <browser refID="Mozilla">
+    <capabilities>
+      <capability name="xml" value="true" />
+    </capabilities>
+  </browser>
+  -->
+</browsers>

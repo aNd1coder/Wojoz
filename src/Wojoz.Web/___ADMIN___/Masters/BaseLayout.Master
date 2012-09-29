@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BaseLayout.master.cs" Inherits="Wojoz.Web.___ADMIN___.Masters.BaseLayout" %>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title><%=ConfigManager.GetString("SiteName")%>后台管理系统</title> 
+<link href="/css/lib/bootstrap.css?v=201206251818" rel="stylesheet" /> 
+<link href="/css/lib/bootstrap-responsive.css?v=20120625" rel="stylesheet" />
+<link href="../assets/css/___ADMIN___.css?v=20120625" rel="stylesheet" />
+<asp:ContentPlaceHolder ID="StylesPlaceHolder" runat="server" />
+<script src="/js/lib/jquery.min.js"></script>
+<script src="/js/lib/bootstrap.min.js"></script>
+<script src="/js/Wojo.js" type="text/javascript"></script>
+<asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server" />
+</head>
+<body>
+<div class="container-fluid">
+<asp:ContentPlaceHolder ID="ContainerPlaceHolder" runat="server">
+</asp:ContentPlaceHolder>
+</div>
+<asp:ContentPlaceHolder ID="LazyContainer" runat="server"> 
+<asp:ContentPlaceHolder ID="PageScriptsPlaceHolder" runat="server" /> 
+<asp:ContentPlaceHolder ID="PageScriptsContainer" runat="server" />
+</asp:ContentPlaceHolder>
+<script src="/js/lib/jquery.js"></script> 
+<script src="/js/lib/bootstrap-transition.js"></script>
+<script src="/js/lib/bootstrap-alert.js"></script>
+<script src="/js/lib/bootstrap-modal.js"></script>
+<script src="/js/lib/bootstrap-dropdown.js"></script>
+<script src="/js/lib/bootstrap-scrollspy.js"></script>
+<script src="/js/lib/bootstrap-tab.js"></script>
+<script src="/js/lib/bootstrap-tooltip.js"></script>
+<script src="/js/lib/bootstrap-popover.js"></script>
+<script src="/js/lib/bootstrap-button.js"></script>
+<script src="/js/lib/bootstrap-collapse.js"></script>
+<script src="/js/lib/bootstrap-carousel.js"></script>
+<script src="/js/lib/bootstrap-typeahead.js"></script>
+<script type="text/javascript">
+    $('.container-fluid').tooltip({
+        selector: "a[rel=tooltip]"
+    })
+</script>
+</body>
+</html>

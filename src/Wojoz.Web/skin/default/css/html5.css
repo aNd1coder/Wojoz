@@ -1,0 +1,5 @@
+﻿/*html5 reset*/
+
+/*语义标签:abbr article aside audio canvas details figcaption figure footer header hgroup mark meter nav output progress section summary time video*/ 
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+

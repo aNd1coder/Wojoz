@@ -1,0 +1,195 @@
+﻿/*
+	Name: Model.cst
+	Author: aNd1coder
+	Description: model lay template
+*/
+using System;
+using System.Data;
+/*
+namespace Wojoz.Model
+{
+    using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
+
+    /// <summary>
+    /// <%=this.SourceTable.Name%>Info实体类
+    /// </summary>
+    [Serializable]
+    public class <%=this.SourceTable.Name%>Info : BaseEntity<<%=this.SourceTable.Name%>Info>
+    {
+        #region Model
+		 
+        #region Constructor
+        /// <summary>
+        /// 构造一个空的新的数据访问对象
+        /// </summary> 
+        public <%=this.SourceTable.Name%>Info(){}
+        /// <summary>
+        /// 构造一个数据访问对象，并将DataRow列的数据提取到对象的属性里
+        /// </summary> 
+        public <%=this.SourceTable.Name%>Info(DataRow dRow)
+        {
+            LoadFromDataRow(dRow);
+        }
+        #endregion  
+		
+        #region Properties 
+		<%foreach (ColumnSchema column in  SourceTable.Columns) { %>
+        <%if(GetCSharpDataTypeByDBColumn(column) == "int")
+		{
+		%>
+		/// <summary>
+        /// <%=column.Description%>
+        /// </summary>
+		public int <%=column.Name%> { get; set; }
+		<%
+		}
+		%>
+		<%else if(column.IsPrimaryKeyMember)
+		{
+		%>
+		/// <summary>
+        /// <%=column.Description.Trim()%>
+        /// </summary>
+		public int <%=column.Name%> { get; set; }
+		<%
+		}
+		%>
+		<%else if(GetCSharpDataTypeByDBColumn(column) == "DateTime")
+		{
+		%>
+		/// <summary>
+        /// <%=column.Description.Trim()%>
+        /// </summary>
+		public DateTime  <%=column.Name%> { get; set; }
+		<%
+		}
+		%>
+			<%else if(GetCSharpDataTypeByDBColumn(column) == "decimal")
+		{
+		%>
+		/// <summary>
+        /// <%=column.Description.Trim()%>
+        /// </summary>
+		public decimal  <%=column.Name%> { get; set; }
+		<%
+		}
+		%>
+		<%else if(GetCSharpDataTypeByDBColumn(column) == "double")
+		{
+		%>
+		/// <summary>
+        /// <%=column.Description.Trim()%>
+        /// </summary>
+		public double  <%=column.Name%> { get; set; }
+		<%
+		}
+		%>
+        <%else if(GetCSharpDataTypeByDBColumn(column) == "float")
+		{
+		%>
+		/// <summary>
+        /// <%=column.Description.Trim()%>
+        /// </summary>
+		public double  <%=column.Name%> { get; set; }
+		<%
+		}
+		%>
+		<%else if(GetCSharpDataTypeByDBColumn(column) == "bool")
+		{
+		%>
+		/// <summary>
+        /// <%=column.Description.Trim()%>
+        /// </summary>
+		public bool  <%=column.Name%> { get; set; }
+		<%
+		}
+		else
+		{%>
+		/// <summary>
+        /// <%=column.Description.Trim()%>
+        /// </summary>
+		public string <%=column.Name%>  { get; set; }
+		<%
+		}
+		}
+		%>
+        #endregion
+        
+        #region Override
+        public override string ToString()
+        { 
+            return <%=this.SourceTable.PrimaryKey.MemberColumns[0].Name%>.ToString();
+        }
+
+        public override bool IsValid()
+        {
+            return base.IsValid();
+        }
+        #endregion
+
+        #region Methods
+        public void LoadFromDataRow(DataRow dRow)
+        {
+            <%foreach (ColumnSchema column in  SourceTable.Columns) { %>
+            <%if(GetCSharpDataTypeByDBColumn(column) == "int")
+            {
+            %>
+            if (!dRow["<%=column.Name%>"].Equals(DBNull.Value))
+                this.<%=column.Name%> = Convert.ToInt32(dRow["<%=column.Name%>"]);
+            <%
+            }
+            %> 
+            <%else if(GetCSharpDataTypeByDBColumn(column) == "DateTime")
+            {
+            %>
+            if (!dRow["<%=column.Name%>"].Equals(DBNull.Value))
+                this.<%=column.Name%> = Convert.ToDateTime(dRow["<%=column.Name%>"]);
+            <%
+            }
+            %>
+            <%else if(GetCSharpDataTypeByDBColumn(column) == "decimal")
+            {
+            %>
+            if (!dRow["<%=column.Name%>"].Equals(DBNull.Value))
+                this.<%=column.Name%> = Convert.ToDecimal(dRow["<%=column.Name%>"]);
+            <%
+            }
+            %>
+            <%else if(GetCSharpDataTypeByDBColumn(column) == "double")
+            {
+            %>
+            if (!dRow["<%=column.Name%>"].Equals(DBNull.Value))
+                this.<%=column.Name%> = Convert.ToDouble(dRow["<%=column.Name%>"]);
+            <%
+            }
+            %>
+             <%else if(GetCSharpDataTypeByDBColumn(column) == "float")
+            {
+            %>
+            if (!dRow["<%=column.Name%>"].Equals(DBNull.Value))
+                this.<%=column.Name%> = Convert.ToDouble(dRow["<%=column.Name%>"]);
+            <%
+            }
+            %>
+            <%else if(GetCSharpDataTypeByDBColumn(column) == "bool")
+            {
+            %>
+            if (!dRow["<%=column.Name%>"].Equals(DBNull.Value))
+                this.<%=column.Name%> = Convert.ToBoolean(dRow["<%=column.Name%>"]);
+            <%
+            }
+            else
+            {%>
+            if (!dRow["<%=column.Name%>"].Equals(DBNull.Value))
+                this.<%=column.Name%> = (dRow["<%=column.Name%>"]).ToString();
+            <%
+            }
+            }
+            %> 
+        }
+        #endregion
+
+        #endregion Model
+    }
+}
+*/
